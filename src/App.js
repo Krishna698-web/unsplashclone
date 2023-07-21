@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect, useReducer, useState } from "react";
+// import useHttp from "./custom-hook/useHttp";
 
-function App() {
+const api_url = "https://api.unsplash.com/photos/?client_id=";
+
+const App = () => {
+  const [apiData, setApiData] = useState();
+  const fetchData = async () => {
+    const response = await fetch(
+      api_url + process.env.REACT_APP_UNSPLASH_API_KEY
+    );
+    const data = await response.json();
+
+    setApiData(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(apiData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {apiData.map((data, index) => (
+        <>
+          <img src={data.urls.raw} style={{ height: "10rem" }} />
+        </>
+      ))}
     </div>
   );
-}
+};
 
 export default App;
