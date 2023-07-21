@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div>
-      {apiData.map((data, index) => (
+      {apiData.map((data) => (
         <>
           <img src={data.urls.raw} style={{ height: "10rem" }} />
         </>
