@@ -23,11 +23,8 @@ const Header = () => {
 
   return (
     <div
-      className={`w-full lg:h-1/4 md:h-4/5 sm:h-1/2 flex justify-center items-center bg-white`}>
-      <Photo
-        src={bgPhoto}
-        className="w-full absolute bg-center md:h-4/5 sm:h-1/2"
-      />
+      style={{ backgroundImage: `url(${bgPhoto})`, height: "25rem" }}
+      className={`w-full flex justify-center items-center bg-white bg-center`}>
       <SearchBar />
     </div>
   );

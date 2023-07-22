@@ -31,6 +31,7 @@ const SearchBar = () => {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        placeholder="Try 'book' or 'coin'"
         className="p-2 rounded-tl-sm rounded-bl-sm lg:w-1/2 md:w-3/4 sm:w-full  outline-none"
       />
       <button type="submit" className="bg-white rounded-r-sm p-2">
