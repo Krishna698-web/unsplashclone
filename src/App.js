@@ -1,14 +1,14 @@
 import "./App.css";
-import { useEffect, useReducer, useState } from "react";
-import SearchBar from "./Components/SearchBar";
-// import useHttp from "./custom-hook/useHttp";
-
-const api_url = "https://api.unsplash.com/photos/?client_id=";
+import SearchBar from "./Components/searches/SearchBar";
+import PhotosCollection from "./Components/Photos/PhotosCollection";
+import RandomCollectoin from "./Components/Photos/RandomCollectoin";
 
 const App = () => {
   return (
     <div>
       <SearchBar />
+      <PhotosCollection />
+      <RandomCollectoin />
     </div>
   );
 };
