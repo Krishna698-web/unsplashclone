@@ -1,14 +1,11 @@
 import "./App.css";
-import SearchBar from "./Components/searches/SearchBar";
-import PhotosCollection from "./Components/Photos/PhotosCollection";
-import RandomCollectoin from "./Components/Photos/RandomCollectoin";
+
+import Parent from "./Components/Parent";
 
 const App = () => {
   return (
-    <div>
-      <SearchBar />
-      <PhotosCollection />
-      <RandomCollectoin />
+    <div className="h-full w-full bg-blue-50">
+      <Parent />
     </div>
   );
 };

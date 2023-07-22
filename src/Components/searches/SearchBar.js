@@ -24,14 +24,17 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={searchSubmitHandler}>
+    <form
+      onSubmit={searchSubmitHandler}
+      className="w-full flex justify-center items-center drop-shadow-md">
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        className="p-2 rounded-tl-sm rounded-bl-sm lg:w-1/2 md:w-3/4 sm:w-full  outline-none"
       />
-      <button type="submit">
-        <BiSearchAlt />
+      <button type="submit" className="bg-white rounded-r-sm p-2">
+        <BiSearchAlt className="text-2xl" />
       </button>
     </form>
   );
