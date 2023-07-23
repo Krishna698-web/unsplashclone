@@ -4,14 +4,14 @@ import { BiSearchAlt } from "react-icons/bi";
 import UnsplashAccess from "../../Context/UnsplashAccess";
 
 const SearchBar = () => {
-  const [query, setQuery] = useState("");
-  const { setPics } = useContext(PicsContext);
+  const { setPics, query, setQuery } = useContext(PicsContext);
 
   const { unsplash } = UnsplashAccess();
 
   const fetchData = async () => {
     const request = await unsplash.search.getPhotos({
       query: query,
+      perPage: 20,
       count: 1,
     });
     // console.log(request.response.results[2].id);

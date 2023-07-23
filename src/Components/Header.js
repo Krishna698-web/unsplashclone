@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "./searches/SearchBar";
 import UnsplashAccess from "../Context/UnsplashAccess";
-import Photo from "./Photos/Photo";
 
 const Header = () => {
   const { unsplash } = UnsplashAccess();
@@ -13,8 +12,7 @@ const Header = () => {
       orientation: "landscape",
     });
 
-    // console.log(photo.response.urls.small);
-    setBgPhoto(photo.response.urls.regular);
+    // setBgPhoto(photo.response.urls.regular);
   };
 
   useEffect(() => {
@@ -23,7 +21,12 @@ const Header = () => {
 
   return (
     <div
-      style={{ backgroundImage: `url(${bgPhoto})`, height: "25rem" }}
+      style={{
+        backgroundImage: `url(${bgPhoto})`,
+        height: "30rem",
+        backgroundRepeat: "no-repeat",
+        width: "100vw",
+      }}
       className={`w-full flex justify-center items-center bg-white bg-center`}>
       <SearchBar />
     </div>

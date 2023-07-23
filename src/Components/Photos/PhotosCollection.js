@@ -5,10 +5,15 @@ import Photo from "./Photo";
 const PhotosCollection = () => {
   const { pics } = useContext(PicsContext);
   return (
-    <div>
+    <div className="flex flex-wrap lg:w-1/2">
       {pics &&
         pics.map((pic) => (
-          <Photo key={pic.id} src={pic.urls.small} alt={pic.alt_description} />
+          <Photo
+            key={pic.id}
+            src={pic.urls.small}
+            alt={pic.alt_description}
+            className={"m-1"}
+          />
         ))}
     </div>
   );

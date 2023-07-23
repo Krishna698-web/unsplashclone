@@ -11,7 +11,7 @@ const RandomCollectoin = () => {
   const fetchPhotos = async () => {
     const randomPhotosRequest = await unsplash.photos.list({
       page: 1,
-      perPage: 10,
+      perPage: 20,
       orderBy: "latest",
     });
 
@@ -24,10 +24,15 @@ const RandomCollectoin = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap lg:w-1/2 justify-center items-center">
       {pics &&
         pics.map((pic) => (
-          <Photo key={pic.id} src={pic.urls.small} alt={pic.alt_description} />
+          <Photo
+            key={pic.id}
+            src={pic.urls.small}
+            alt={pic.alt_description}
+            className={"m-1 rounded-sm drop-shadow-md"}
+          />
         ))}
     </div>
   );
