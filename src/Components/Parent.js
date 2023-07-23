@@ -4,14 +4,17 @@ import PhotosCollection from "./Photos/PhotosCollection";
 import RandomCollectoin from "./Photos/RandomCollectoin";
 import Header from "./Header";
 import { PicsContext } from "../Context/PicsContext";
+import KeywordModal from "./Modal/KeywordModal";
 
 const Parent = () => {
   const { query } = useContext(PicsContext);
 
   return (
-    <div className="flex flex-col justify-center w-full">
+    <div className="flex flex-col justify-center w-full md:overflow-hidden sm:overflow-hidden">
       <Header />
-      {query ? <PhotosCollection /> : <RandomCollectoin />}
+      <div className="w-full flex justify-center bg-white">
+        {query ? <PhotosCollection /> : <RandomCollectoin />}
+      </div>
     </div>
   );
 };

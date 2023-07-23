@@ -3,7 +3,7 @@ import { PicsContext } from "../../Context/PicsContext";
 import { BiSearchAlt } from "react-icons/bi";
 import UnsplashAccess from "../../Context/UnsplashAccess";
 
-const SearchBar = () => {
+const SearchBar = ({ onShowKeyword }) => {
   const { setPics, query, setQuery } = useContext(PicsContext);
 
   const { unsplash } = UnsplashAccess();
@@ -33,6 +33,7 @@ const SearchBar = () => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Try 'book' or 'coin'"
         className="p-2 rounded-tl-sm rounded-bl-sm lg:w-1/2 md:w-3/4 sm:w-full  outline-none"
+        onClick={onShowKeyword}
       />
       <button type="submit" className="bg-white rounded-r-sm p-2">
         <BiSearchAlt className="text-2xl" />
