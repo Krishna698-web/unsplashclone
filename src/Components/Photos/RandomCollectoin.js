@@ -24,7 +24,7 @@ const RandomCollectoin = () => {
   }, []);
 
   return (
-    <div className="lg:w-4/5 grid gap-1 lg:grid-cols-4  sm:grid-cols-1 md:grid-cols-3 bg-slate-400 ">
+    <div className="lg:w-4/5 grid gap-1 lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-3">
       {pics &&
         pics.map((pic) => (
           <Photo
