@@ -11,8 +11,7 @@ const SearchBar = ({ onShowKeyword }) => {
   const fetchData = async () => {
     const request = await unsplash.search.getPhotos({
       query: query,
-      page: 3,
-      perPage: 20,
+      perPage: 30,
       count: 1,
     });
     // console.log(request.response.results[2].id);
