@@ -4,13 +4,10 @@ import KeywordModal from "../Modal/KeywordModal";
 
 const SearchTool = () => {
   const [showKeywords, setShowKeywords] = useState(false);
-  const ShowKeywordsHandler = () => {
-    setShowKeywords(true);
-  };
 
   return (
     <div className="w-full relative flex justify-center">
-      <SearchBar onShowKeyword={ShowKeywordsHandler} />
+      <SearchBar onShowKeyword={setShowKeywords} />
       {showKeywords && <KeywordModal />}
     </div>
   );

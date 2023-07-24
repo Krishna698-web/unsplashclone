@@ -11,11 +11,14 @@ const SearchBar = ({ onShowKeyword }) => {
   const fetchData = async () => {
     const request = await unsplash.search.getPhotos({
       query: query,
+      page: 3,
       perPage: 20,
       count: 1,
     });
     // console.log(request.response.results[2].id);
-    setPics(request.response.results);
+    if (request.response) {
+      setPics(request.response.results);
+    }
   };
 
   const searchSubmitHandler = (e) => {
@@ -33,7 +36,8 @@ const SearchBar = ({ onShowKeyword }) => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Try 'book' or 'coin'"
         className="p-2 rounded-tl-sm rounded-bl-sm lg:w-1/2 md:w-3/4 sm:w-full  outline-none"
-        onClick={onShowKeyword}
+        onFocus={() => onShowKeyword(true)}
+        onBlur={() => onShowKeyword(false)}
       />
       <button type="submit" className="bg-white rounded-r-sm p-2">
         <BiSearchAlt className="text-2xl" />
