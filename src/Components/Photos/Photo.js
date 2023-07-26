@@ -2,9 +2,13 @@ import React from "react";
 
 const Photo = ({ src, alt, className }) => {
   return (
-    <>
-      <img src={src} alt={alt} className={className} />
-    </>
+    <div className="">
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} cursor-pointer transition-all`}
+      />
+    </div>
   );
 };
 

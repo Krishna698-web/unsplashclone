@@ -2,16 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import UnsplashAccess from "../../Context/UnsplashAccess";
 import Photo from "./Photo";
-import PaginatedCollection from "./PaginatedCollection";
+import Pagination from "./Pagination";
 
 const RandomCollectoin = () => {
-  const { pics, setPics } = useContext(PicsContext);
+  const { pics, setPics, page } = useContext(PicsContext);
 
   const { unsplash } = UnsplashAccess();
 
   const fetchPhotos = async () => {
     const randomPhotosRequest = await unsplash.photos.list({
-      perPage: 30,
+      page: page,
+      perPage: 20,
       orderBy: "latest",
     });
 
@@ -27,7 +28,7 @@ const RandomCollectoin = () => {
 
   return (
     <>
-      <PaginatedCollection />
+      <Pagination />
     </>
   );
 };
