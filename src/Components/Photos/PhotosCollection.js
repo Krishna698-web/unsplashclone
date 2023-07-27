@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import Photo from "./Photo";
-import Pagination from "./Pagination";
+import PaginatedCollection from "./PaginatedCollection";
 
 const PhotosCollection = () => {
+<<<<<<< HEAD
   const { pics, page } = useContext(PicsContext);
 
   return (
@@ -25,6 +26,12 @@ const PhotosCollection = () => {
       </div>
       <Pagination />
     </div>
+=======
+  return (
+    <>
+      <PaginatedCollection />
+    </>
+>>>>>>> parent of b4a51d1 (Added seperate pagination)
   );
 };
 

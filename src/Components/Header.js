@@ -27,7 +27,7 @@ const Header = () => {
         backgroundRepeat: "no-repeat",
         width: "100vw",
       }}
-      className="w-full flex flex-col justify-center bg-white bg-center">
+      className="w-full flex flex-col justify-center items-center bg-white bg-center">
       <SearchTool />
     </header>
   );
