@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import { BiSearchAlt } from "react-icons/bi";
 import UnsplashAccess from "../../Context/UnsplashAccess";
@@ -11,13 +11,14 @@ const SearchBar = ({ onShowKeyword }) => {
   const fetchData = async () => {
     const request = await unsplash.search.getPhotos({
       query: query,
-      page: page,
-      perPage: 20,
+      page: 1,
+      perPage: 30,
       count: 1,
     });
     // console.log(request.response.results[2].id);
     if (request.response) {
       setPics(request.response.results);
+      console.log(request.response.results);
     }
   };
 
