@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { PicsContext } from "../../Context/PicsContext";
-import Photo from "./Photo";
-import PaginatedCollection from "./PaginatedCollection";
+import Photo from "../UI/Photo";
+import Pagination from "./Pagination";
 
 const PhotosCollection = () => {
-<<<<<<< HEAD
   const { pics, page } = useContext(PicsContext);
 
   return (
@@ -19,19 +18,13 @@ const PhotosCollection = () => {
                 src={pic.urls.small}
                 alt={pic.alt_description}
                 className={
-                  "rounded-md drop-shadow-md w-full h-fit object-cover"
+                  "rounded-md drop-shadow-md w-full h-fit object-cover cursor-pointer"
                 }
               />
             ))}
       </div>
       <Pagination />
     </div>
-=======
-  return (
-    <>
-      <PaginatedCollection />
-    </>
->>>>>>> parent of b4a51d1 (Added seperate pagination)
   );
 };
 
