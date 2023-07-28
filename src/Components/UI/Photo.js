@@ -2,8 +2,12 @@ import React from "react";
 
 const Photo = ({ src, alt, className, onClick }) => {
   return (
-    <div className={className} onClick={onClick}>
-      <img src={src} alt={alt} className={`${className}`} />
+    <div onClick={onClick}>
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} drop-shadow-md object-cover overflow-hidden`}
+      />
     </div>
   );
 };

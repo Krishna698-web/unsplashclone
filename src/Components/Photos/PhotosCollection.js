@@ -17,9 +17,7 @@ const PhotosCollection = () => {
                 key={pic.id}
                 src={pic.urls.small}
                 alt={pic.alt_description}
-                className={
-                  "rounded-md drop-shadow-md w-full h-fit object-cover cursor-pointer"
-                }
+                className={"rounded-md cursor-zoom-in"}
               />
             ))}
       </div>
