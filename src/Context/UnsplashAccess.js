@@ -1,4 +1,3 @@
-import React from "react";
 import { createApi } from "unsplash-js";
 
 const UnsplashAccess = () => {

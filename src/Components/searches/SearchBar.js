@@ -2,28 +2,16 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import { BiSearchAlt } from "react-icons/bi";
 import UnsplashAccess from "../../Context/UnsplashAccess";
+import useFetch from "../../hooks/useFetch";
 
 const SearchBar = ({ onShowKeyword }) => {
-  const { setPics, query, setQuery, page } = useContext(PicsContext);
+  const { query, setQuery } = useContext(PicsContext);
 
-  const { unsplash } = UnsplashAccess();
-
-  const fetchData = async () => {
-    const request = await unsplash.search.getPhotos({
-      query: query,
-      page: 1,
-      perPage: 30,
-      count: 1,
-    });
-    // console.log(request.response.results[2].id);
-    if (request.response) {
-      setPics(request.response.results);
-    }
-  };
+  const { fetchData } = useFetch();
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
-    fetchData();
+    fetchData(query);
   };
 
   return (

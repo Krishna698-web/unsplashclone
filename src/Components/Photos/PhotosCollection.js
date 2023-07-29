@@ -1,28 +1,36 @@
 import React, { useContext, useState } from "react";
-import { PicsContext } from "../../Context/PicsContext";
 import Photo from "../UI/Photo";
-import Pagination from "./Pagination";
+import { PicsContext } from "../../Context/PicsContext";
+import PhotoModal from "../Modal/PhotoModal";
 
 const PhotosCollection = () => {
-  const { pics, page } = useContext(PicsContext);
+  const { pics, showModal, setShowModal } = useContext(PicsContext);
+
+  const [photo, setPhoto] = useState();
+
+  const passPhotoHandler = (pic) => {
+    setShowModal(true);
+    setPhoto(pic);
+  };
 
   return (
-    <div className="w-4/5 flex justify-center flex-col">
-      <div className="lg:w-full grid gap-1 lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-3">
+    <>
+      <div className="lg:w-full grid gap-2 lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-3">
         {pics &&
-          pics
-            .slice(page * 10 - 10, page * 10)
-            .map((pic) => (
-              <Photo
-                key={pic.id}
-                src={pic.urls.small}
-                alt={pic.alt_description}
-                className={"rounded-md cursor-zoom-in"}
-              />
-            ))}
+          pics.map((pic) => (
+            <Photo
+              key={pic.id}
+              src={pic.urls.small}
+              alt={pic.alt_description}
+              className={"rounded-md cursor-zoom-in"}
+              onClick={() => passPhotoHandler(pic)}
+            />
+          ))}
       </div>
-      <Pagination />
-    </div>
+      {showModal && (
+        <PhotoModal onClose={() => setShowModal(false)} photo={photo} />
+      )}
+    </>
   );
 };
 
