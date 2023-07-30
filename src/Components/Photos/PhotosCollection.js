@@ -13,7 +13,7 @@ const PhotosCollection = () => {
 
   return (
     <>
-      <div className="lg:w-full grid gap-2 lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-3">
+      <div className="w-full grid gap-2 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-3">
         {pics &&
           pics
             .slice(page * 10 - 10, page * 10)

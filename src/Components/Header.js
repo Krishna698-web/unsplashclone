@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import UnsplashAccess from "../Context/UnsplashAccess";
 import SearchTool from "./searches/SearchTool";
+import UnsplashAccess from "../Context/UnsplashAccess";
 
 const Header = () => {
   const { unsplash } = UnsplashAccess();
+
   const [bgPhoto, setBgPhoto] = useState();
 
   const fetchPhoto = async () => {
     const photo = await unsplash.photos.getRandom({
-      query: "nature",
+      query: "mountains",
       orientation: "landscape",
     });
 
-    // setBgPhoto(photo.response.urls.regular);
+    setBgPhoto(photo.response.urls.regular);
   };
 
   useEffect(() => {
@@ -23,11 +24,12 @@ const Header = () => {
     <header
       style={{
         backgroundImage: `url(${bgPhoto})`,
-        height: "30rem",
         backgroundRepeat: "no-repeat",
-        width: "100vw",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backdropFilter: "blur(220px)",
       }}
-      className="w-full flex flex-col justify-center items-center bg-white bg-center">
+      className="w-full h-1/2 flex flex-col items-center bg-center mb-5 relative">
       <SearchTool />
     </header>
   );

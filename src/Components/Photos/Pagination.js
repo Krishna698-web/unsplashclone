@@ -10,13 +10,12 @@ const Pagination = () => {
     }
   };
 
-  // console.log([...Array(pics.length / 10).map((_, i) => i)]);
   return (
     <>
       <div className="my-4 w-full flex justify-center items-center gap-2">
         {page > 1 && (
           <span
-            className="border p-2 cursor-pointer"
+            className="border py-2 px-4 cursor-pointer rounded-sm"
             onClick={() => selectedPageHandler(page - 1)}>
             ◀
           </span>
@@ -25,15 +24,15 @@ const Pagination = () => {
           [...Array(pics.length / 10)].map((_, i) => (
             <span
               key={i}
-              className={`border px-4 py-2 cursor-pointer font-semibold
-              ${page === i + 1 ? "bg-blue-400 text-white" : "bg-white"}`}
+              className={`border px-4 py-2 cursor-pointer font-semibold rounded-sm
+              ${page === i + 1 ? "bg-black text-white" : "bg-white"}`}
               onClick={() => selectedPageHandler(i + 1)}>
               {i + 1}
             </span>
           ))}
         {page < pics.length / 10 && (
           <span
-            className="border p-2 cursor-pointer"
+            className="border py-2 px-4 cursor-pointer rounded-sm"
             onClick={() => selectedPageHandler(page + 1)}>
             ▶
           </span>

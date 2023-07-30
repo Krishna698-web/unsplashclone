@@ -29,7 +29,7 @@ const RandomCollectoin = () => {
   }, [page]);
 
   return (
-    <div className="w-4/5 flex justify-center flex-col">
+    <div className="lg:w-3/5 p-5 flex justify-center flex-col">
       <PhotosCollection />
       {showModal && <PhotoModal onClose={() => setShowModal(false)} />}
       <Pagination />
