@@ -3,15 +3,8 @@ import Photo from "../UI/Photo";
 import { PicsContext } from "../../Context/PicsContext";
 import PhotoModal from "../Modal/PhotoModal";
 
-const PhotosCollection = () => {
-  const { pics, showModal, setShowModal } = useContext(PicsContext);
-
-  const [photo, setPhoto] = useState();
-
-  const passPhotoHandler = (pic) => {
-    setShowModal(true);
-    setPhoto(pic);
-  };
+const PhotosCollection = ({ passPhotoHandler }) => {
+  const { pics } = useContext(PicsContext);
 
   return (
     <>
@@ -27,9 +20,6 @@ const PhotosCollection = () => {
             />
           ))}
       </div>
-      {showModal && (
-        <PhotoModal onClose={() => setShowModal(false)} photo={photo} />
-      )}
     </>
   );
 };

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Modal from "../UI/Modal";
 import Photo from "../UI/Photo";
+import useFetch from "../../hooks/useFetch";
+import { PicsContext } from "../../Context/PicsContext";
+import PhotosCollection from "../Photos/PhotosCollection";
 
 const PhotoModal = ({ onClose, photo }) => {
   // console.log();
@@ -8,6 +11,13 @@ const PhotoModal = ({ onClose, photo }) => {
   const downloadLink = photo.links.download_location
     .replace("api.", "")
     .replace("download", "download?force=true");
+
+  const { query } = useContext(PicsContext);
+  const { fetchData } = useFetch();
+
+  useEffect(() => {
+    fetchData(query);
+  }, []);
 
   return (
     <Modal>
@@ -49,6 +59,10 @@ const PhotoModal = ({ onClose, photo }) => {
               }
             />
           </div>
+        </div>
+        <div>
+          <h1>Related Images:</h1>
+          <PhotosCollection />
         </div>
       </div>
     </Modal>

@@ -7,7 +7,7 @@ import PhotoModal from "../Modal/PhotoModal";
 import PhotosCollection from "./PhotosCollection";
 
 const RandomCollectoin = () => {
-  const { setPics, page } = useContext(PicsContext);
+  const { setPics, page, showModal, setShowModal } = useContext(PicsContext);
 
   const { unsplash } = UnsplashAccess();
 
@@ -29,9 +29,19 @@ const RandomCollectoin = () => {
     fetchPhotos();
   }, [page]);
 
+  const [photo, setPhoto] = useState();
+
+  const passPhotoHandler = (pic) => {
+    setShowModal(true);
+    setPhoto(pic);
+  };
+
   return (
     <div className="w-4/5 flex justify-center flex-col">
-      <PhotosCollection />
+      <PhotosCollection passPhotoHandler={passPhotoHandler} />
+      {showModal && (
+        <PhotoModal onClose={() => setShowModal(false)} photo={photo} />
+      )}
       <Pagination />
     </div>
   );
