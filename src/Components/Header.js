@@ -27,9 +27,8 @@ const Header = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
-        backdropFilter: "blur(220px)",
       }}
-      className="w-full h-1/2 flex flex-col items-center bg-center mb-5 relative">
+      className="w-full lg:h-3/5 md:h-3/5 sm:h-1/2 max-sm:h-1/2 flex flex-col items-center bg-center mb-5 relative">
       <SearchTool />
     </header>
   );

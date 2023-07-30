@@ -6,7 +6,7 @@ const Photo = ({ src, alt, className, onClick }) => {
       <img
         src={src}
         alt={alt}
-        className={`${className} drop-shadow-lg object-cover overflow-hidden`}
+        className={`${className} drop-shadow-lg object-cover`}
       />
     </div>
   );

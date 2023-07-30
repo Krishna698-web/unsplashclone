@@ -19,7 +19,9 @@ const SearchBar = () => {
     <form
       onSubmit={searchSubmitHandler}
       className="w-full flex justify-center items-center drop-shadow-sm">
-      <button type="submit" className="bg-white rounded-l-sm p-3 text-gray-500">
+      <button
+        type="submit"
+        className="bg-white rounded-l-sm p-3 text-gray-500 hover:text-gray-800 transition">
         <BiSearchAlt className="text-2xl" />
       </button>
       <input
@@ -30,9 +32,8 @@ const SearchBar = () => {
         }
         placeholder="Try 'book' or 'coin'"
         className="p-3 rounded-r-sm lg:w-1/2 md:w-3/4 sm:w-4/5 max-sm:w-4/5 outline-none"
-        onMouseDown={() => setShowKeywords(true)}></input>
-      {showKeywords && <KeywordModal onSubmit={searchSubmitHandler} />}
-      {/* <KeywordModal /> */}
+        onFocus={() => setShowKeywords(true)}></input>
+      {showKeywords && <KeywordModal />}
     </form>
   );
 };

@@ -14,25 +14,25 @@ const OreintationModal = () => {
       <h2 className="font-semibold text-2xl mb-2">Orientation:</h2>
       <div className="flex flex-wrap w-full gap-5">
         <button
-          className="flex gap-1 items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800"
+          className="flex gap-1 items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800 transition"
           onClick={() => fetchData(query, null)}>
           <BiCategory />
           <span>All</span>
         </button>
         <button
-          className="flex gap-1 items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800"
+          className="flex gap-1 items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800 transition"
           onClick={() => fetchData(query, "landscape")}>
           <IoTabletLandscapeSharp />
           <span>Landscape</span>
         </button>
         <button
-          className="flex gap-1 items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800"
+          className="flex gap-1 items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800 transition"
           onClick={() => fetchData(query, "squarish")}>
           <BiSquare />
           <span>Square</span>
         </button>
         <button
-          className="flex gap-1  items-center  border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800"
+          className="flex gap-1  items-center border py-2 px-5 rounded-md text-gray-400 hover:text-gray-800 hover:drop-shadow-md hover:border-slate-800 transition"
           onClick={() => fetchData(query, "portrait")}>
           <IoTabletPortraitSharp />
           <span>Portrait</span>

@@ -20,7 +20,7 @@ const RandomCollectoin = () => {
     // console.log(randomPhotosRequest);
     if (randomPhotosRequest && randomPhotosRequest.response) {
       setPics(randomPhotosRequest.response.results);
-      console.log(randomPhotosRequest.response.results);
+      // console.log(randomPhotosRequest.response.results);
     }
   };
 
