@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
-import { PicsContext } from "../../Context/PicsContext";
-import Photo from "../UI/Photo";
+import React from "react";
 import Pagination from "./Pagination";
 import PhotosCollection from "./PhotosCollection";
+import OreintationModal from "../Modal/OreintationModal";
 
 const SearchedPhotos = () => {
-  const { pics, page } = useContext(PicsContext);
-
   return (
     <div className="w-4/5 flex justify-center flex-col">
+      <OreintationModal />
       <PhotosCollection />
       <Pagination />
     </div>

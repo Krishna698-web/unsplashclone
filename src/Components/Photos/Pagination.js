@@ -1,48 +1,40 @@
-import React, { useContext, useState } from "react";
-import Photo from "../UI/Photo";
+import React, { useContext } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 
-const pageArray = [1, 2, 3];
 const Pagination = () => {
   const { pics, page, setPage } = useContext(PicsContext);
+
   const selectedPageHandler = (selectedPage) => {
-    setPage(selectedPage);
-  };
-
-  const perviousPageHandler = () => {
-    if (page >= 1) {
-      setPage(page - 1);
+    if (selectedPage >= 1) {
+      setPage(selectedPage);
     }
   };
 
-  const nextPageHandler = () => {
-    if (page >= 1) {
-      setPage(page + 1);
-    }
-  };
-
+  // console.log([...Array(pics.length / 10).map((_, i) => i)]);
   return (
     <>
       <div className="my-4 w-full flex justify-center items-center gap-2">
         {page > 1 && (
           <span
             className="border p-2 cursor-pointer"
-            onClick={perviousPageHandler}>
+            onClick={() => selectedPageHandler(page - 1)}>
             ◀
           </span>
         )}
         {pics.length > 0 &&
-          pageArray.map((i) => (
+          [...Array(pics.length / 10)].map((_, i) => (
             <span
               key={i}
               className={`border px-4 py-2 cursor-pointer font-semibold
-              ${page === i ? "bg-blue-400 text-white" : "bg-white"}`}
-              onClick={() => selectedPageHandler(i)}>
-              {i}
+              ${page === i + 1 ? "bg-blue-400 text-white" : "bg-white"}`}
+              onClick={() => selectedPageHandler(i + 1)}>
+              {i + 1}
             </span>
           ))}
-        {page < pageArray[2] && (
-          <span className="border p-2 cursor-pointer" onClick={nextPageHandler}>
+        {page < pics.length / 10 && (
+          <span
+            className="border p-2 cursor-pointer"
+            onClick={() => selectedPageHandler(page + 1)}>
             ▶
           </span>
         )}

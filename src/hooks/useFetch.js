@@ -3,7 +3,7 @@ import { PicsContext } from "../Context/PicsContext";
 import UnsplashAccess from "../Context/UnsplashAccess";
 
 const useFetch = () => {
-  const { setPics } = useContext(PicsContext);
+  const { setPics, orientation } = useContext(PicsContext);
   const { unsplash } = UnsplashAccess();
 
   const fetchData = async (query) => {
@@ -12,6 +12,7 @@ const useFetch = () => {
       page: 1,
       perPage: 30,
       count: 1,
+      orientation: orientation,
     });
 
     if (request.response) {

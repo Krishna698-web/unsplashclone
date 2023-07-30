@@ -7,6 +7,8 @@ const PicsContextProvider = ({ children }) => {
   const [query, setQuery] = useState();
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [photo, setPhoto] = useState();
+  const [orientation, setOrientation] = useState();
 
   return (
     <PicsContext.Provider
@@ -19,6 +21,10 @@ const PicsContextProvider = ({ children }) => {
         setPage,
         showModal,
         setShowModal,
+        photo,
+        setPhoto,
+        orientation,
+        setOrientation,
       }}>
       {children}
     </PicsContext.Provider>

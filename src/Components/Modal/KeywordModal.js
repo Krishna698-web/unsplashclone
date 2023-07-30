@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 
 const KeywordModal = () => {
-  const { query, setQuery } = useContext(PicsContext);
+  const { setQuery } = useContext(PicsContext);
 
   return (
-    <div className="absolute top-36 lg:w-1/2 md:w-3/4 sm:w-full drop-shadow-sm mt-2 px-3 py-2 rounded-sm border bg-white">
+    <div className="absolute top-36 lg:w-1/2 md:w-3/4 sm:w-full drop-shadow-md mt-2 px-3 py-2 rounded-sm bg-white">
       <h1 className="text-2xl font-semibold">Popular search:</h1>
       <ul className="flex flex-wrap gap-2 mt-2">
         <li

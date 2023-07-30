@@ -1,7 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import { BiSearchAlt } from "react-icons/bi";
-import UnsplashAccess from "../../Context/UnsplashAccess";
 import useFetch from "../../hooks/useFetch";
 
 const SearchBar = ({ onShowKeyword }) => {
@@ -17,7 +16,7 @@ const SearchBar = ({ onShowKeyword }) => {
   return (
     <form
       onSubmit={searchSubmitHandler}
-      className="w-full flex justify-center items-center drop-shadow-md">
+      className="w-full flex justify-center items-center drop-shadow-sm">
       <button type="submit" className="bg-white rounded-r-sm p-3 text-gray-400">
         <BiSearchAlt className="text-2xl" />
       </button>
@@ -30,8 +29,7 @@ const SearchBar = ({ onShowKeyword }) => {
         placeholder="Try 'book' or 'coin'"
         className="p-3 rounded-tl-sm rounded-bl-sm lg:w-1/2 md:w-3/4 sm:w-4/5 max-sm:w-4/5 outline-none"
         onFocus={() => onShowKeyword(true)}
-        onBlur={() => onShowKeyword(false)}
-      />
+        onBlur={() => onShowKeyword(false)}></input>
     </form>
   );
 };
