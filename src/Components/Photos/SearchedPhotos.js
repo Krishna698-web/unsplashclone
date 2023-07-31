@@ -9,7 +9,7 @@ const SearchedPhotos = () => {
   const { showModal, setShowModal } = useContext(PicsContext);
 
   return (
-    <div className="w-4/5 flex justify-center flex-col">
+    <div className="lg:w-3/5 md:w-11/12 p-5 flex justify-center flex-col">
       <OreintationModal />
       <PhotosCollection />
       {showModal && <PhotoModal onClose={() => setShowModal(false)} />}

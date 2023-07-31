@@ -6,7 +6,7 @@ const useFetch = () => {
   const { setPics, page } = useContext(PicsContext);
   const { unsplash } = UnsplashAccess();
 
-  const fetchData = useCallback(async (query, shape = null) => {
+  const fetchData = async (query, shape = null) => {
     const request = await unsplash.search.getPhotos({
       query: query,
       page: page,
@@ -18,7 +18,7 @@ const useFetch = () => {
     if (request.response) {
       setPics(request.response.results);
     }
-  });
+  };
 
   return {
     fetchData,

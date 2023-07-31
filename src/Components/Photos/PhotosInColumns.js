@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import Photo from "../UI/Photo";
 
-const PhotosInColumns = ({ start, end }) => {
+const PhotosInColumns = ({ from, to }) => {
   const { pics, setShowModal, setPhoto } = useContext(PicsContext);
 
   const passPhotoHandler = (pic) => {
@@ -11,10 +11,10 @@ const PhotosInColumns = ({ start, end }) => {
   };
 
   return (
-    <div className="lg:w-1/3 md:w-1/3 sm:w-full max-sm:w-full flex flex-col gap-4">
+    <div className="lg:w-1/3 md:w-1/3 max-sm:w-full flex flex-col gap-4">
       {pics &&
         pics
-          .slice(start, end)
+          .slice(from, to)
           .map((pic) => (
             <Photo
               key={pic.id}
