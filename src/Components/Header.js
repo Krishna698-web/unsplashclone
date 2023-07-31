@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SearchTool from "./searches/SearchTool";
 import UnsplashAccess from "../Context/UnsplashAccess";
 
@@ -7,14 +7,14 @@ const Header = () => {
 
   const [bgPhoto, setBgPhoto] = useState();
 
-  const fetchPhoto = async () => {
+  const fetchPhoto = useCallback(async () => {
     const photo = await unsplash.photos.getRandom({
       query: "mountains",
       orientation: "landscape",
     });
 
     setBgPhoto(photo.response.urls.regular);
-  };
+  });
 
   useEffect(() => {
     fetchPhoto();

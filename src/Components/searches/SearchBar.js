@@ -7,8 +7,12 @@ import KeywordModal from "../Modal/KeywordModal";
 const SearchBar = () => {
   const [showKeywords, setShowKeywords] = useState(false);
 
-  const { query, setQuery } = useContext(PicsContext);
+  const { query, setQuery, page } = useContext(PicsContext);
   const { fetchData } = useFetch();
+
+  useEffect(() => {
+    fetchData(query);
+  }, [page]);
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -26,14 +30,13 @@ const SearchBar = () => {
       </button>
       <input
         type="text"
-        value={query}
         onChange={(e) =>
           setQuery(e.target.value !== "" ? e.target.value : null)
         }
         placeholder="Try 'book' or 'coin'"
         className="p-3 rounded-r-sm lg:w-1/2 md:w-3/4 sm:w-4/5 max-sm:w-4/5 outline-none"
         onFocus={() => setShowKeywords(true)}></input>
-      {showKeywords && <KeywordModal />}
+      {/* {showKeywords && <KeywordModal />} */}
     </form>
   );
 };

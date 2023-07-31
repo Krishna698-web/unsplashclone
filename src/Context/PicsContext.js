@@ -4,7 +4,7 @@ const PicsContext = createContext({});
 
 const PicsContextProvider = ({ children }) => {
   const [pics, setPics] = useState([]);
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [photo, setPhoto] = useState();

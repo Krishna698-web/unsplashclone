@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 
+const pageCount = [1, 2, 3];
+
 const Pagination = () => {
   const { pics, page, setPage } = useContext(PicsContext);
 
@@ -21,16 +23,16 @@ const Pagination = () => {
           </span>
         )}
         {pics.length > 0 &&
-          [...Array(pics.length / 10)].map((_, i) => (
+          pageCount.map((i) => (
             <span
               key={i}
               className={`border px-4 py-2 cursor-pointer font-semibold rounded-sm
-              ${page === i + 1 ? "bg-black text-white" : "bg-white"}`}
-              onClick={() => selectedPageHandler(i + 1)}>
-              {i + 1}
+              ${page === i ? "bg-black text-white" : "bg-white"}`}
+              onClick={() => selectedPageHandler(i)}>
+              {i}
             </span>
           ))}
-        {page < pics.length / 10 && (
+        {page < pageCount.length && (
           <span
             className="border py-2 px-4 cursor-pointer rounded-sm"
             onClick={() => selectedPageHandler(page + 1)}>
