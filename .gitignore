@@ -11,8 +11,10 @@
 # production
 /build
 
+#Secret file
+.env
+
 # misc
-*.env
 .DS_Store
 
 npm-debug.log*
