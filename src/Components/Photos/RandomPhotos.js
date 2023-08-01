@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { PicsContext } from "../../Context/PicsContext";
 import UnsplashAccess from "../../Context/UnsplashAccess";
 import Pagination from "./Pagination";
@@ -11,15 +11,20 @@ const RandomPhotos = () => {
   const { unsplash } = UnsplashAccess();
 
   const fetchPhotos = async () => {
-    const randomPhotosRequest = await unsplash.photos.list({
-      page: page,
-      perPage: 30,
-      orderBy: "latest",
-    });
+    try {
+      const randomPhotosRequest = await unsplash.photos.list({
+        page: page,
+        perPage: 30,
+        orderBy: "latest",
+      });
 
-    if (randomPhotosRequest && randomPhotosRequest.response) {
-      setPics(randomPhotosRequest.response.results);
-      // console.log(randomPhotosRequest.response.results);
+      if (randomPhotosRequest.response) {
+        setPics(randomPhotosRequest.response.results);
+        console.log(randomPhotosRequest.response.results);
+      }
+    } catch (error) {
+      console.log(error.message);
+      throw new Error();
     }
   };
 

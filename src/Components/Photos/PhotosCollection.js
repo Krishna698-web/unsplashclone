@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
 import PhotosInColumns from "./PhotosInColumns";
-import { PicsContext } from "../../Context/PicsContext";
-import Photo from "../UI/Photo";
 
 const PhotosCollection = () => {
   return (

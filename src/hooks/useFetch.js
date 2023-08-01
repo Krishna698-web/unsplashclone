@@ -7,16 +7,21 @@ const useFetch = () => {
   const { unsplash } = UnsplashAccess();
 
   const fetchData = async (query, shape = null) => {
-    const request = await unsplash.search.getPhotos({
-      query: query,
-      page: page,
-      perPage: 30,
-      count: 1,
-      orientation: shape,
-    });
+    try {
+      const request = await unsplash.search.getPhotos({
+        query: query,
+        page: page,
+        perPage: 30,
+        count: 1,
+        orientation: shape,
+      });
 
-    if (request.response) {
-      setPics(request.response.results);
+      if (request.response) {
+        setPics(request.response.results);
+      }
+    } catch (error) {
+      console.log(error.message);
+      throw new Error();
     }
   };
 

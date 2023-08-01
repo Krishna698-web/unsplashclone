@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     fetchData(query);
-  }, [page, query]);
+  }, [page]);
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();

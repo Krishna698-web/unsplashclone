@@ -15,7 +15,7 @@ const PhotoModal = ({ onClose }) => {
 
   useEffect(() => {
     fetchData(query);
-  }, []);
+  }, [query]);
 
   return (
     <Modal>
@@ -29,19 +29,17 @@ const PhotoModal = ({ onClose }) => {
             className="cursor-pointer fixed right-3 top-0 text-gray-400 font-semibold hover:text-gray-900 p-1 text-lg">
             X
           </span>
-          <div className="">
-            <Photo
-              src={photo.urls.small}
-              alt={photo.alt_description}
-              className={
-                "rounded-md lg:w-10/12 md:w-full sm:w-10/12 max-sm:w-10/12 m-auto"
-              }
-            />
-          </div>
+          <Photo
+            src={photo.urls.small}
+            alt={photo.alt_description}
+            className={
+              "rounded-md lg:w-10/12 md:w-full sm:w-10/12 max-sm:w-10/12 m-auto"
+            }
+          />
           <div className="lg:w-2/5 md:w-5/5 sm:w-10/12 max-sm:w-10/12 flex justify-between items-center mt-4">
             <div className="flex items-center gap-2">
               <Photo
-                src={photo.user.profile_image.small}
+                src={photo.user.profile_image.medium}
                 alt={"Profile image"}
                 className={"rounded-full h-10"}
               />

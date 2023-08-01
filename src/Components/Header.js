@@ -8,13 +8,20 @@ const Header = () => {
   const [bgPhoto, setBgPhoto] = useState();
 
   const fetchPhoto = useCallback(async () => {
-    const photo = await unsplash.photos.getRandom({
-      query: "mountains",
-      orientation: "landscape",
-    });
-
-    setBgPhoto(photo.response.urls.regular);
-  });
+    try {
+      const photo = await unsplash.photos.getRandom({
+        query: "mountains",
+        orientation: "landscape",
+      });
+      if (photo.response) {
+        setBgPhoto(photo.response.urls.regular);
+        console.log(photo.response.urls.regular);
+      }
+    } catch (error) {
+      console.log(error.message);
+      throw new Error();
+    }
+  }, [bgPhoto]);
 
   useEffect(() => {
     fetchPhoto();
