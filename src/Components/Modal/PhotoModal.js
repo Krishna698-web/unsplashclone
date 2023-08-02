@@ -7,15 +7,11 @@ import RelatedPhotos from "../Photos/RelatedPhotos";
 
 const PhotoModal = ({ onClose }) => {
   const { query, photo } = useContext(PicsContext);
-  const { fetchData } = useFetch();
+  // const { fetchData } = useFetch();
 
   const downloadLink = photo.links.download_location
     .replace("api.", "")
     .replace("download", "download?force=true");
-
-  useEffect(() => {
-    fetchData(query);
-  }, [query]);
 
   return (
     <Modal>

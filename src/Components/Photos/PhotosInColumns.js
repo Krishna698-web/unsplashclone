@@ -6,8 +6,8 @@ const PhotosInColumns = ({ from, to }) => {
   const { pics, setShowModal, setPhoto } = useContext(PicsContext);
 
   const passPhotoHandler = (pic) => {
-    setShowModal(true);
     setPhoto(pic);
+    setShowModal(true);
   };
 
   return (

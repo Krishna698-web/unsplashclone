@@ -6,7 +6,8 @@ import PhotoModal from "../Modal/PhotoModal";
 import PhotosCollection from "./PhotosCollection";
 
 const RandomPhotos = () => {
-  const { setPics, page, showModal, setShowModal } = useContext(PicsContext);
+  const { setPics, page, setPage, showModal, setShowModal } =
+    useContext(PicsContext);
 
   const { unsplash } = UnsplashAccess();
 
@@ -18,9 +19,10 @@ const RandomPhotos = () => {
         orderBy: "latest",
       });
 
-      if (randomPhotosRequest.response) {
+      if (randomPhotosRequest) {
         setPics(randomPhotosRequest.response.results);
-        console.log(randomPhotosRequest.response.results);
+        setPage(1);
+        // console.log(randomPhotosRequest.response.results);
       }
     } catch (error) {
       console.log(error.message);

@@ -15,13 +15,13 @@ const Header = () => {
       });
       if (photo.response) {
         setBgPhoto(photo.response.urls.regular);
-        console.log(photo.response.urls.regular);
+        // console.log(photo.response.urls.regular);
       }
     } catch (error) {
       console.log(error.message);
       throw new Error();
     }
-  }, [bgPhoto]);
+  }, []);
 
   useEffect(() => {
     fetchPhoto();
