@@ -6,7 +6,7 @@ import { PicsContext } from "../../Context/PicsContext";
 import RelatedPhotos from "../Photos/RelatedPhotos";
 
 const PhotoModal = ({ onClose }) => {
-  const { query, photo } = useContext(PicsContext);
+  const { photo } = useContext(PicsContext);
   // const { fetchData } = useFetch();
 
   const downloadLink = photo.links.download_location
@@ -22,8 +22,8 @@ const PhotoModal = ({ onClose }) => {
         <div className="lg:w-10/12 md:w-10/12 sm:w-11/12 max-sm:w-11/12 flex flex-col items-center overflow-y-auto no-scrollbar">
           <span
             onClick={onClose}
-            className="cursor-pointer fixed right-3 top-0 text-gray-400 font-semibold hover:text-gray-900 p-1 text-lg">
-            X
+            className="cursor-pointer fixed right-3 top-0 text-gray-400 font-semibold hover:text-gray-900 p-1 text-lg ">
+            x
           </span>
           <Photo
             src={photo.urls.small}

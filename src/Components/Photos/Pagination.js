@@ -26,7 +26,7 @@ const Pagination = () => {
           pageCount.map((i) => (
             <span
               key={i}
-              className={`border px-4 py-2 cursor-pointer font-semibold rounded-sm
+              className={`border px-4 py-2 cursor-pointer font-semibold rounded-sm hover:bg-slate-400 hover:text-white transition
               ${page === i ? "bg-black text-white" : "bg-white"}`}
               onClick={() => selectedPageHandler(i)}>
               {i}

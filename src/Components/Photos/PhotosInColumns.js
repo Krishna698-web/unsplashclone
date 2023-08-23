@@ -18,7 +18,7 @@ const PhotosInColumns = ({ from, to }) => {
           .map((pic) => (
             <Photo
               key={pic.id}
-              src={pic.urls.regular}
+              src={pic.urls.small}
               alt={pic.alt_description}
               className={"rounded-md cursor-zoom-in"}
               onClick={() => passPhotoHandler(pic)}

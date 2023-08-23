@@ -21,7 +21,6 @@ const RandomPhotos = () => {
 
       if (randomPhotosRequest) {
         setPics(randomPhotosRequest.response.results);
-        setPage(1);
         // console.log(randomPhotosRequest.response.results);
       }
     } catch (error) {

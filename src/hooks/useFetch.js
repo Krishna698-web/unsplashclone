@@ -18,6 +18,7 @@ const useFetch = () => {
 
       if (request.response) {
         setPics(request.response.results);
+        console.log(request.response.results);
       }
     } catch (error) {
       console.log(error.message);
